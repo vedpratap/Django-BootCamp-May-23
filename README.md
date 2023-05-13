@@ -55,6 +55,19 @@ Web Application Using Python Django.
 - By default there is one url defined in `urls.py` file for admin login. we can go to `http://127.0.0.1:8000/admin` for admin login page as shown below.
 
 ### Setting Up Views & URLs
+- We will create or define our all endpoints in file `urls.py`. By default there is only one `\admin`.
+- The structure for defining the endpoints are as below:
+  - `path('url', function(), name = '')`
+  - Example : `path('\home', Home.as_view(), name='home')` 
+  - Empty path `' '` means homepage. 
+- Since all the urls will work on the function, we will create a new file `view_function.py` (name is optional) which will contain all the function required for all the urls in our project as shown below.
+
 ### Templates, Static Assets, Template Inheritance
+- We can render text, raw_html, HTML Files, images or anything to our web pages.
+  - #### Text or Raw_html
+    - write this `from django.http import HttpResponse` in `view_function.py` file. 
+    - create function in `view_function.py` file which will return text or raw_html.
+    - import all the function from `view_function.py` to `urls.py` by writing `from . import view_function` in `urls.py`.
+    - create url in `url.py`
 ### GET vs POST
 ### Additional - Table for a number using jinja template
