@@ -184,4 +184,49 @@ Web Application Using Python Django.
     - The `{% extends %}` tag is the key here. It tells the template engine that this template **“extends”** another template. When the template system evaluates this template, first it locates the parent. **The extends tag must be the first tag in the template**. To render the contents of a block defined in the parent template, use `{{ super() }}`.
 
 ### GET vs POST
+- `Django's` form is returned using the **POST** method, in which the browser bundles up the form data, encodes it for transmission, sends it to the server, and then receives back its response. **GET** , by contrast, bundles the submitted data into a string, and uses this to compose a URL.
+- If we are using any HTML Form, we should use `action = "url"` where url must not have slash(/). In case of django url replaces path_url which is defined in `urls.py`.
+- By default method for any HTML Form is **GET**. We can specify `method = "post"` for using **POST** method in `<form method = "post"><\form>` tag.
+- **Demonstrating GET Method**
+  - create a form in index.html file with GET method.
+  ```
+     <form action="generate">
+        <div class="mb-3">
+            <label for="Number" class="form-label">Enter Number</label>
+            <input type="number" name = "number" class="form-control" id="number" placeholder="0">
+          </div>
+          <div class="mb-3">
+            <label for="upto" class="form-label">Upto</label>
+            <input type = "number" class="form-control" name = "upto" id="upto" placeholder="0">
+          </div>
+          <input type = "submit">
+     </form>
+  ```
+  - Create a new html file `showindex.html`.
+  ```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <title>Show Index</title>
+    </head>
+    <body>
+       <h2>Table for number {{number}} upto {{upto}}.</h2>
+    </body>
+    </html>
+  ```
+  - create a function `generate`.
+  ```
+      def generate(request):
+        number = request.GET.get("number")
+        upto = request.GET.get("upto")
+        return render(request, "showindex.html", {"number":number, "upto":upto})
+  ```
+  - create url as : ` path('generate/', view_function.generate)`
+  - It will show : **Table for number 7 upto 7.**
+- Similary we can use `request.POST.get("number")` Which will demonstrate in next topic.
 ### Additional - Table for a number using jinja template
