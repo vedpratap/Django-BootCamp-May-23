@@ -19,9 +19,7 @@ Web Application Using Python Django.
 - Install Django : `pip install django` - This will install Django framework.
 - Run the command `django-admin` for checking proper installment of django. It will run smoothly in case of proper installation.
 - Run the command `django-admin startproject projectname` : This will create projects (some directories) inside the folder as shown below. `projectname` can be anything. Example shown below using `myapp`
-![Folder](images/folder_myapp.png)
 - structure of folder
-![Code](images/code_myapp.png)
 - Explanations
   - `manage.py`
     - If you are not new to Django, you must have seen the word “command-line utility” many times. But what does this mean?
