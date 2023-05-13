@@ -68,6 +68,43 @@ Web Application Using Python Django.
     - write this `from django.http import HttpResponse` in `view_function.py` file. 
     - create function in `view_function.py` file which will return text or raw_html.
     - import all the function from `view_function.py` to `urls.py` by writing `from . import view_function` in `urls.py`.
-    - create url in `url.py`
+    - create url in `url.py`. While creating urls, we will write function name as `view_function.functionname`.
+    - Go to respective urls for seeing the contents.
+
+   - Types of `import` in python.
+    - **Quick Recap on Import**
+      - You need to have a good understanding of Python modules and packages to know how imports work. A Python module is a file that has a .py extension, and a Python package is any folder that has modules inside it (or, in Python 2, a folder that contains an `__init__.py` file).
+      - What happens when you have code in one module that needs to access code in another module or package? You import it! 
+    - **How Imports Work**
+      - The first thing Python will do is look up the name abc in `sys.modules`. This is a cache of all modules that have been previously imported.
+      - If the name isn’t found in the module cache, Python will proceed to search through a list of built-in modules. These are modules that come pre-installed with Python and can be found in the Python Standard Library. If the name still isn’t found in the built-in modules, Python then searches for it in a list of directories defined by `sys.path`. This list usually includes the current directory, which is searched first.
+      - When Python finds the module, it binds it to a name in the local scope. This means that abc is now defined and can be used in the current file without throwing a NameError.
+      - If the name is never found, you’ll get a `ModuleNotFoundError`.
+     - **Absolute Imports**
+      - An absolute import specifies the resource to be imported using its full path from the project’s root folder.
+      - *Examples:*
+        -   `from package1 import module1`
+        -   `from package1.module2 import function1`
+        -   `from package2 import class1`
+        -   `from package2.subpackage1.module5 import function2`
+       - **Pros and Cons of Absolute Imports**
+         - Absolute imports are preferred because they are quite clear and straightforward. It is easy to tell exactly where the imported resource is, just by looking at the statement. Additionally, absolute imports remain valid even if the current location of the import statement changes. In fact, PEP 8 explicitly recommends absolute imports.
+         - Sometimes, however, absolute imports can get quite verbose, depending on the complexity of the directory structure. Imagine having a statement like this:
+         - `from package1.subpackage2.subpackage3.subpackage4.module5 import function6`
+         - That’s ridiculous, right? Luckily, relative imports are a good alternative in such cases!
+     - **Relative Imports** - A relative import specifies the resource to be imported relative to the current location—that is, the location where the import statement is. There are two types of relative imports: implicit and explicit. Implicit relative imports have been deprecated in Python 3.
+        - **Syntax and Practical Examples** 
+        - The syntax of a relative import depends on the current location as well as the location of the module, package, or object to be imported. Here are a few examples of relative imports:
+        - `from .some_module import some_class`
+        - `from ..some_package import some_function`
+        - `from . import some_class`
+        - You can see that there is at least one dot in each import statement above. Relative imports make use of dot notation to specify location.
+        - A single dot means that the module or package referenced is in the same directory as the current location. Two dots mean that it is in the parent directory of the current location—that is, the directory above. Three dots mean that it is in the grandparent directory, and so on. This will probably be familiar to you if you use a Unix-like operating system!
+       - **Pros and Cons of Relative Imports**
+       - One clear advantage of relative imports is that they are quite succinct. Depending on the current location, they can turn the ridiculously long import statement you saw earlier to something as simple as this:
+       - `from ..subpackage4.module5 import function6`
+       - Unfortunately, relative imports can be messy, particularly for shared projects where directory structure is likely to change. Relative imports are also not as readable as absolute ones, and it’s not easy to tell the location of the imported resources.
+
+
 ### GET vs POST
 ### Additional - Table for a number using jinja template
