@@ -19,7 +19,9 @@ Web Application Using Python Django.
 - Install Django : `pip install django` - This will install Django framework.
 - Run the command `django-admin` for checking proper installment of django. It will run smoothly in case of proper installation.
 - Run the command `django-admin startproject projectname` : This will create projects (some directories) inside the folder as shown below. `projectname` can be anything. Example shown below using `myapp`
+![Folder](images/folder_myapp.png)
 - Below is the Explanation and structure of folder
+![Code](images/code_myapp.png)
 ### Run Django Development server
 ### Setting Up Views & URLs
 ### Templates, Static Assets, Template Inheritance
