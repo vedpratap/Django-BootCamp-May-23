@@ -230,3 +230,30 @@ Web Application Using Python Django.
   - It will show : **Table for number 7 upto 7.**
 - Similary we can use `request.POST.get("number")` Which will demonstrate in next topic.
 ### Additional - Table for a number using jinja template
+- In jinja, There is no `range(n)` function as python.
+- **Solution**
+- write the below statement in `view_function.py`
+```
+    from django.template.defaulttags import register
+```
+- create range function as below:
+```
+    @register.filter
+    def get_range(value):
+        return range(1, int(value)+1)
+```
+- Now we can use for loop and do calculation.
+- In case of **POST** method, url will be with slash at end also eg. `127.0.0.1:8000/generate/`. For making this off set `APPEND_SLASH = False` in `settings.py`.
+- And, define the url in `urls.py` without slash.
+- Apart from that **POST** method need `csrf_token`. We can get rid of this by using `from django.views.decorators.csrf import csrf_exempt` in `view_function.py`. After that before defining any **POST** method function write `@csrt_exempt`
+- For doing multiplication, we will also use filters as below:
+```
+    @register.filter
+    def mul(a,b):
+        return int(a)*int(b)
+
+```
+- In Html file we will use this filter as:
+```
+    {{ number | mul:i }}
+```
