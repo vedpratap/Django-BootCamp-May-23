@@ -257,3 +257,10 @@ Web Application Using Python Django.
 ```
     {{ number | mul:i }}
 ```
+
+## Day 02/03 (Topics Covered)
+- Need of Models and defining models
+- Database Connectivity
+- Database Operations using Shell
+- Start with frontend for blog app
+- URL - View Mapping for existing code
