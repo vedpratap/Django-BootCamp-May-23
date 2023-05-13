@@ -33,7 +33,7 @@ Web Application Using Python Django.
     - This is an empty file. The function of this file is to tell the Python interpreter that this directory is a package and involvement of this `__init.py_` file in it  makes it a python project.
   - `settings.py`
     - It contains the Django project configuration.
-    - The setting.py is the most important file, and it is used for adding all the applications and middleware applications. This is the main setting file of the Django  project. 
+    - The `setting.py` is the most important file, and it is used for adding all the applications and middleware applications. This is the main setting file of the Django  project. 
     - This contains several variable names, and if you change the value, your application will work accordingly.
     - It contains sqlite3 as the default database. We can change this database to Mysql, PostgreSQL, or MongoDB according to the web application we create.
     - It contains some pre-installed apps and middleware that are there to provide basic functionality.
@@ -48,6 +48,12 @@ Web Application Using Python Django.
     - ASGI works similar to WSGI but comes with some additional functionality.  ASGI stands for Asynchronous Server Gateway Interface. It is now replacing its predecessor WSGI. 
 
 ### Run Django Development server
+- Open the `command prompt` inside the main project folder where the file `manage.py` is present.
+- Run the command `python manage.py runserver` : It will start the development server or we can say that it will run our web application.
+- It will host our application on url ` http://127.0.0.1:8000/`. we can copy and paste it in our browser.
+- By default landing page will be as shown below.
+- By default there is one url defined in `urls.py` file for admin login. we can go to `http://127.0.0.1:8000/admin` for admin login page as shown below.
+
 ### Setting Up Views & URLs
 ### Templates, Static Assets, Template Inheritance
 ### GET vs POST
