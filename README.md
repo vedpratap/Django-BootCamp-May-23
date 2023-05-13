@@ -105,6 +105,42 @@ Web Application Using Python Django.
        - `from ..subpackage4.module5 import function6`
        - Unfortunately, relative imports can be messy, particularly for shared projects where directory structure is likely to change. Relative imports are also not as readable as absolute ones, and it’s not easy to tell the location of the imported resources.
 
+  - #### How to render HTML Files
+    - Create folder `templates` with parallel to folder `myapp` and file `manage.py`.
+    - All Html Files will reside under this folder.
+    - Go to `settings.py` - TEMPLATES - DIRS - Write `DIRS = ['templates']`.
+    - write this in `view_function.py` : `from django.shortcuts import render`.
+    - create function for rendering html files. Template for that is as below:
+    ```
+    def function_name(request):
+        return render(request, "filename.html", dictionary)
+    ```
+    - **Example :**
+    ```
+    def home(request):
+        return render(request, "index.html", {"first" :"10", "second":20})
+    ```
+    - `return` statement has three parts: 1. we have to write `request`. 2. Write html file name within inverted commas. 3. Dictionary by which we can pass metadata to html file as a content. Example, we will send something as variable and use jinja templatation.
+    - create url in `urls.py`. Go to that url.
+  
+  - #### How to render static files
+    -  Create folder `static` with parallel to folder `templates`.
+    -  Go to `settings.py`. There is something written as `STATIC_URL = 'static/'` which is url of our folder `static`.
+    -  But below this line we have to specify directory under which static folder is present.
+    -  Overall two lines will be :
+    ```
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = ['BASE_DIR/static/']
+    ```
+    -  Now put anything inside the static folder. Example : images etc.
+    -  We can access static folder files in out html as below:
+    ```
+    {% load static %} - For loading static folder.
+    {% static 'path_url for any files' %} - url for the file.
+    ```
+    - We can use the above url as link in html under `<a><\a>` tag.
+  - #### Template Inheritance
+
 
 ### GET vs POST
 ### Additional - Table for a number using jinja template
