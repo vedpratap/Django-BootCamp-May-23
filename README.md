@@ -1,4 +1,4 @@
-# Django-BootCamp-May-23
+# Django-BootCamp-May-23 (IIT Madras)
 Web Application Using Python Django.
 
 ## Day 01/03 (Topics Covered)
